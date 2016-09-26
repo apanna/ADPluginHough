@@ -1,0 +1,129 @@
+# Database for NDPluginHough
+# Alireza Panna
+# September, 20 2016
+
+include "NDPluginBase.template"
+
+record(ao, "$(P)$(R)MinDistance")
+{
+    field(PINI,  "YES")
+    field(DTYP,  "asynFloat64")
+    field(OUT,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_DISTANCE")
+    field(VAL,   "")
+}
+record(ai, "$(P)$(R)MinDistance_RBV")
+{
+    field(DTYP,  "asynFloat64")
+    field(INP,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_DISTANCE")
+    field(SCAN,  "I/O Intr")
+}
+record(ao, "$(P)$(R)MinRadius")
+{
+    field(PINI,  "YES")
+    field(DTYP,  "asynInt32")
+    field(OUT,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_RADIUS")
+    field(VAL,   "")
+}
+record(ai, "$(P)$(R)MinRadius_RBV")
+{
+    field(DTYP,  "asynInt32")
+    field(INP,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_RADIUS")
+    field(SCAN,  "I/O Intr")
+}
+record(ao, "$(P)$(R)MaxRadius")
+{
+    field(PINI,  "YES")
+    field(DTYP,  "asynInt32")
+    field(OUT,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MAX_RADIUS")
+    field(VAL,   "")
+}
+record(ai, "$(P)$(R)MaxRadius_RBV")
+{
+    field(DTYP,  "asynInt32")
+    field(INP,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MAX_RADIUS")
+    field(SCAN,  "I/O Intr")
+}
+record(ao, "$(P)$(R)Param1")
+{
+    field(PINI,  "YES")
+    field(DTYP,  "asynFloat64")
+    field(OUT,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))PARAM1")
+    field(VAL,   "100")
+}
+record(ai, "$(P)$(R)Param1_RBV")
+{
+    field(DTYP,  "asynFloat64")
+    field(INP,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))PARAM1")
+    field(SCAN,  "I/O Intr")
+}
+record(ao, "$(P)$(R)Param2")
+{
+    field(PINI,  "YES")
+    field(DTYP,  "asynFloat64")
+    field(OUT,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))PARAM2")
+    field(VAL,   "100")
+}
+record(ai, "$(P)$(R)Param2_RBV")
+{
+    field(DTYP,  "asynFloat64")
+    field(INP,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))PARAM2")
+    field(SCAN,  "I/O Intr")
+}
+record(ai, "$(P)$(R)Detected_RBV")
+{
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))DETECTED")
+    field(SCAN, "I/O Intr")
+}
+record(ao, "$(P)$(R)MaxLineGap")
+{
+    field(PINI,  "YES")
+    field(DTYP,  "asynFloat64")
+    field(OUT,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MAX_LINE_GAP")
+    field(VAL,   "")
+}
+record(ai, "$(P)$(R)MaxLineGap_RBV")
+{
+    field(DTYP,  "asynFloat64")
+    field(INP,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MAX_LINE_GAP")
+    field(SCAN,  "I/O Intr")
+}
+record(ao, "$(P)$(R)MinLineLength")
+{
+    field(PINI,  "YES")
+    field(DTYP,  "asynFloat64")
+    field(OUT,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_LINE_LENGTH")
+    field(VAL,   "")
+}
+record(ai, "$(P)$(R)MinLineLength_RBV")
+{
+    field(DTYP,  "asynFloat64")
+    field(INP,   "@asyn($(PORT),$(ADDR),$(TIMEOUT))MIN_LINE_LENGTH")
+    field(SCAN,  "I/O Intr")
+}
+record(mbbo, "$(P)$(R)HoughType")
+{
+   field(PINI, "YES")
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HOUGH_TYPE")
+   field(ZRST, "None")
+   field(ZRVL, "0")
+   field(ONST, "Circles")
+   field(ONVL, "1")
+   field(TWST, "Lines")
+   field(TWVL, "2")
+   field(VAL,  "0")
+   info(autosaveFields, "VAL")
+}
+record(mbbi, "$(P)$(R)HoughType_RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))HOUGH_TYPE")
+   field(ZRST, "None")
+   field(ZRVL, "0")
+   field(ONST, "Circles")
+   field(ONVL, "1")
+   field(TWST, "Lines")
+   field(TWVL, "2")
+   field(SCAN, "I/O Intr")
+}

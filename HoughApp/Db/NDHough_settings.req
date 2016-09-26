@@ -1,0 +1,9 @@
+file "NDPluginBase_settings.req", P=$(P), R=$(R)
+$(P)$(R)MinDistance
+$(P)$(R)MinRadius
+$(P)$(R)MaxRadius
+$(P)$(R)Param1
+$(P)$(R)Param2
+$(P)$(R)MinLineLength
+$(P)$(R)MaxLineGap
+$(P)$(R)HoughType
