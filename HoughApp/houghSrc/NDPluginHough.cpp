@@ -51,9 +51,16 @@ void NDPluginHough::processCallbacks(NDArray *pArray)
   unsigned char *inData, *outData;
 
   static const char* functionName = "processCallbacks";
-  // printf("In function: %s\n", functionName);
   /* Call the base class method */
   NDPluginDriver::processCallbacks(pArray);
+  // This plugin only works with 1-D or 2-D arrays
+  if (pArray->ndims > 2 || pArray->ndims < 0)
+  {
+    asynPrint(pasynUserSelf, ASYN_TRACE_ERROR,
+        "%s::%s: error, number of array dimensions must be 1 or 2\n",
+        driverName, functionName);
+    return;
+  }
   /* Get user inputs */
   getDoubleParam(NDPluginHoughMinDistance,    &minDistance);
   getIntegerParam(NDPluginHoughMinRadius,     &minRadius);
@@ -80,7 +87,7 @@ void NDPluginHough::processCallbacks(NDArray *pArray)
   // Initialize the output data array
   inData  = (unsigned char *)pScratch->pData;
   outData = (unsigned char *)img.data;
-  memcpy( outData, inData, arrayInfo.nElements * sizeof(*inData));
+  memcpy(outData, inData, arrayInfo.nElements * sizeof(*inData));
 
   switch (houghType)
   {
